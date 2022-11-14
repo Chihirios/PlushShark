@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "plushshark",
+  "version": "${version}",
+
+  "name": "Plush Shark",
+  "description": "Desc",
+  "authors": [
+    "Chihirios"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Chihirios/PlushShark"
+  },
+
+  "license": "MIT",
+  "icon": "assets/plushshark/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.chihirios.plushshark.PlushSharkMod"
+      }
+    ]
+  },
+  "mixins": [
+    "plushshark.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric-api": "*",
+    "minecraft": "~1.19",
+    "java": ">=17",
+    "fabric-language-kotlin": ">=1.8.6+kotlin.1.7.21"
+  }
+}
+
