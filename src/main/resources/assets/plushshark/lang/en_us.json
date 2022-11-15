@@ -1,4 +1,6 @@
 {
-  "block.plushshark.blahaj": "Blahaj",
-  "block.plushshark.blahaj_blue": "Blue Blahaj"
+  "itemGroup.plushshark.general": "Plush Shark",
+  "block.plushshark.blahaj": "Blahaj"
+
+
 }
