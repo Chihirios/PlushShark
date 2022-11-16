@@ -12,7 +12,10 @@ import org.apache.logging.log4j.Logger
 
 object PlushSharkMod : ModInitializer {
     val LOGGER: Logger = LogManager.getLogger("Plush Shark")
-    val ITEM_GROUP = FabricItemGroupBuilder.create(ResourceLocation("plushshark", "general"))
+    val MODID = "plushshark"
+    fun id(path: String) = ResourceLocation(MODID, path)
+
+    val ITEM_GROUP = FabricItemGroupBuilder.create(id("general"))
         .icon { ItemStack(ModBlocks.BLAHAJ) }
         .appendItems { stacks ->
             stacks.add(ItemStack(ModItems.BLAHAJ))
@@ -20,7 +23,11 @@ object PlushSharkMod : ModInitializer {
         .build()
 
     override fun onInitialize() {
-        LOGGER.info("Plush shark mod version ${FabricLoader.getInstance().getModContainer("plushshark").get().metadata.version.friendlyString} loading")
+        LOGGER.info(
+            "Plush shark mod version ${
+                FabricLoader.getInstance().getModContainer(MODID).get().metadata.version.friendlyString
+            } loading"
+        )
 
         ModItems.register()
         ModBlocks.register()
