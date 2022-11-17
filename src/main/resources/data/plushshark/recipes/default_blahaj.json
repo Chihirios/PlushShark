@@ -1,10 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+
+
   "pattern": [
     "   ",
     "BFB",
     "WW "
   ],
+
+
   "key": {
     "W": {
       "item": "minecraft:white_wool"
@@ -16,6 +20,8 @@
       "tag": "minecraft:fishes"
     }
   },
+
+
   "result": {
     "item": "plushshark:blahaj",
     "count": 1
