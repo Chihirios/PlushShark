@@ -4,6 +4,7 @@
   "package": "io.github.chihirios.plushshark.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EnderManMixin"
   ],
   "client": [
   ],
