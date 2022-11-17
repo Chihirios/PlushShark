@@ -15,10 +15,11 @@ object PlushSharkMod : ModInitializer {
     val MODID = "plushshark"
     fun id(path: String) = ResourceLocation(MODID, path)
 
-    val ITEM_GROUP = FabricItemGroupBuilder.create(id("general"))
+    val BLAHAJ_GROUP = FabricItemGroupBuilder.create(id("general"))
         .icon { ItemStack(ModBlocks.BLAHAJ) }
         .appendItems { stacks ->
             stacks.add(ItemStack(ModItems.BLAHAJ))
+            stacks.add(ItemStack(ModItems.ENDERMITE_BLAHAJ))
         }
         .build()
 
