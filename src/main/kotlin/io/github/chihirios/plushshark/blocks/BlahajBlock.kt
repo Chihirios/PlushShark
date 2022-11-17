@@ -8,9 +8,9 @@ import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.Shapes
 import net.minecraft.world.phys.shapes.VoxelShape
 
-class BlahajBlock(properties: Properties) : Block(properties) {
+open class BlahajBlock(properties: Properties) : Block(properties) {
 
     override fun getShape(state: BlockState, level: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape {
-        return Shapes.create(0.25, 0.0, 0.1, 0.75, 0.3, 0.9)
+        return Shapes.create(0.25, 0.0, 0.1, 0.75, 3.0/16, 0.9)
     }
 }

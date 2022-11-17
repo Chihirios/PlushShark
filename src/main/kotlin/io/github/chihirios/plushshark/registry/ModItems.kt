@@ -9,8 +9,10 @@ import net.minecraft.world.item.Item
 
 object ModItems {
     val BLAHAJ: Item = BlockItem(ModBlocks.BLAHAJ, FabricItemSettings().group(CreativeModeTab.TAB_DECORATIONS))
+    val ENDERMITE_BLAHAJ: Item = BlockItem(ModBlocks.ENDERMITE_BLAHAJ, FabricItemSettings().group(CreativeModeTab.TAB_DECORATIONS))
 
     fun register() {
         Registry.register(Registry.ITEM, PlushSharkMod.id("blahaj"), BLAHAJ)
+        Registry.register(Registry.ITEM, PlushSharkMod.id("endermite_blahaj"), ENDERMITE_BLAHAJ)
     }
 }

@@ -8,5 +8,6 @@ import net.minecraft.client.renderer.RenderType
 object PlushSharkModClient : ClientModInitializer {
     override fun onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLAHAJ, RenderType.cutout())
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ENDERMITE_BLAHAJ, RenderType.cutout())
     }
 }

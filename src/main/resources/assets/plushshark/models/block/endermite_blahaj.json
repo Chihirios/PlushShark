@@ -3,8 +3,8 @@
   "parent": "block/block",
   "textures": {
     "2": "plushshark:block/blahaj/default_teeth",
-    "3": "plushshark:block/blahaj/default_texture",
-    "particle": "plushshark:block/blahaj/default_texture"
+    "3": "plushshark:block/blahaj/endermite_texture",
+    "particle": "plushshark:block/blahaj/endermite_texture"
   },
   "elements": [
     {
