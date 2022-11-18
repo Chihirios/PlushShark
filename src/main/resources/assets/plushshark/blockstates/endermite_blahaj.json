@@ -13,7 +13,7 @@
     },
     "facing=east": {
       "model": "plushshark:block/endermite_blahaj",
-      "y": 0
+      "y": 90
     }
   }
 }

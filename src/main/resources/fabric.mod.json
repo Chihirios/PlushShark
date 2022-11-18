@@ -28,6 +28,12 @@
         "adapter": "kotlin",
         "value": "io.github.chihirios.plushshark.client.PlushSharkModClient"
       }
+    ],
+    "rei_client": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.chihirios.plushshark.compat.rei.PlushSharkREIPlugin"
+      }
     ]
   },
   "mixins": [
