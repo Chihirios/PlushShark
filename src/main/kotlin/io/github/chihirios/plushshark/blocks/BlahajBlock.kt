@@ -7,33 +7,37 @@ import net.minecraft.world.item.context.BlockPlaceContext
 import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.HorizontalDirectionalBlock
 import net.minecraft.world.level.block.SimpleWaterloggedBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.StateDefinition
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraft.world.level.block.state.properties.BooleanProperty
-import net.minecraft.world.level.block.state.properties.IntegerProperty
 import net.minecraft.world.level.material.FluidState
 import net.minecraft.world.level.material.Fluids
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.Shapes
 import net.minecraft.world.phys.shapes.VoxelShape
 
-open class BlahajBlock(properties: Properties) : Block(properties), SimpleWaterloggedBlock {
-    val WATERLOGGED: BooleanProperty = BlockStateProperties.WATERLOGGED
-    val ROTATION: IntegerProperty = BlockStateProperties.ROTATION_16
+open class BlahajBlock(properties: Properties) : HorizontalDirectionalBlock(properties), SimpleWaterloggedBlock {
+    companion object {
+        val WATERLOGGED: BooleanProperty = BlockStateProperties.WATERLOGGED
+
+        val SHAPE_X_AXIS: VoxelShape = Shapes.create(0.1, 0.0, 0.25, 0.9, 3.0/16, 0.75)
+        val SHAPE_Z_AXIS: VoxelShape = Shapes.create(0.25, 0.0, 0.1, 0.75, 3.0/16, 0.9)
+    }
 
     init {
-        registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false).setValue(ROTATION, 0))
+        registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(FACING, Direction.NORTH))
     }
 
     @Suppress("OVERRIDE_DEPRECATION")
     override fun getShape(state: BlockState, level: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape {
-        return Shapes.create(0.25, 0.0, 0.1, 0.75, 3.0/16, 0.9)
+        return if (state.getValue(FACING).axis == Direction.Axis.X) SHAPE_X_AXIS else SHAPE_Z_AXIS
     }
 
     override fun createBlockStateDefinition(builder: StateDefinition.Builder<Block, BlockState>) {
-        builder.add(WATERLOGGED, ROTATION)
+        builder.add(WATERLOGGED, FACING)
     }
 
     @Suppress("OVERRIDE_DEPRECATION")
@@ -57,8 +61,6 @@ open class BlahajBlock(properties: Properties) : Block(properties), SimpleWaterl
 
     override fun getStateForPlacement(context: BlockPlaceContext): BlockState? {
         val fluidState = context.level.getFluidState(context.clickedPos)
-        // from StandingSignBlock#getStateForPlacement
-        val rotation = Mth.floor(((180.0f + context.rotation) * 16.0f / 360.0f).toDouble() + 0.5) and 15
-        return defaultBlockState().setValue(ROTATION, rotation).setValue(WATERLOGGED, fluidState.type === Fluids.WATER)
+        return defaultBlockState().setValue(FACING, context.horizontalDirection.opposite).setValue(WATERLOGGED, fluidState.type === Fluids.WATER)
     }
 }

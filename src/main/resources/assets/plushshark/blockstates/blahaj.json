@@ -1,6 +1,20 @@
 {
   "variants": {
-    "": { "model": "plushshark:block/blahaj" }
+    "facing=north": {
+      "model": "plushshark:block/blahaj"
+    },
+    "facing=west": {
+      "model": "plushshark:block/blahaj",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "plushshark:block/blahaj",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "plushshark:block/blahaj",
+      "y": 90
+    }
   }
 }
 

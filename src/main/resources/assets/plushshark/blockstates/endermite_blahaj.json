@@ -1,6 +1,20 @@
 {
   "variants": {
-    "": { "model": "plushshark:block/endermite_blahaj" }
+    "facing=north": {
+      "model": "plushshark:block/endermite_blahaj"
+    },
+    "facing=west": {
+      "model": "plushshark:block/endermite_blahaj",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "plushshark:block/endermite_blahaj",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "plushshark:block/endermite_blahaj",
+      "y": 0
+    }
   }
 }
 
